@@ -66,7 +66,7 @@ Note that we currently only support `deposit_types: full`
 
 To Retrieve the `Unit-UUID`:
 - Method: Get
-- Endpoint: https://api.dev.joinpassive.com/properties/<Property-UUID>
+- Endpoint: `https://api.dev.joinpassive.com/properties/<Property-UUID>`
 
 ## Add Tenants and Request Deposit
 
@@ -94,5 +94,5 @@ By hitting this endpoint, the client will receive an email to complete the secur
 - Method: Get
 - Endpoint: `https://api.dev.joinpassive.com/deposits/<Deposit-UUID>/`
 
-There is a status field within the returned JSON. The four statuses are awaiting tenant Setup, active, pending closure, and closed. 
+There is a status field within the returned JSON. The four statuses are awaiting tenant Setup, active, pending closure, and closed. Contact Passive if you want use to hit an API when deposit status changes.
 
