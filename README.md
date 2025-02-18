@@ -5,7 +5,7 @@ Integration into the passive platform can be summarized into the following steps
 2. 2-Factor Verification
 3. Add Property
 4. Add Units
-5. Add Tenants
+5. Add Tenants and Request Deposit
 6. Fetch Deposit Status
 For testing purpose, use our development endpoint: `https://api.dev.joinpassive.com/`
 ## Login
@@ -63,3 +63,36 @@ Note that we currently only support `deposit_types: full`
 - Method: Post
 - Endpoint: `https://api.dev.joinpassive.com/properties/<Property-UUID>/units`
 - Request Body: `[{"identifier": "Unit 1"}, {"identifier": "Apt 2"}, ....]`
+
+To Retrieve the `Unit-UUID`:
+- Method: Get
+- Endpoint: https://api.dev.joinpassive.com/properties/<Property-UUID>
+
+## Add Tenants and Request Deposit
+
+- Method: Post
+- Endpoint: `https://api.dev.joinpassive.com/deposits`
+- Request body: `{
+    "name": "Hello World",
+    "email": "hello.world@passive.rent",
+    "unit_id": "452f909c-958b-4480-8561-b32969483549",
+    "start_date": "2025-02-05",
+    "end_date": "2026-02-04",
+    "deposit_amount": "5100.00",
+    "last_month_amount": "700.10"
+}`
+- Successful Response: `{"id": "Deposit-UUID"}`
+
+By hitting this endpoint, the client will receive an email to complete the security deposit steps. Should the clients not receive the email you are able to get the link via:
+
+- Method: Get
+- Endpoint: `https://api.dev.joinpassive.com/deposits/<Deposit-UUID>/link`
+- Successful Response: `{"link": "some-link"}`
+
+## Fetch Deposit Status
+
+- Method: Get
+- Endpoint: `https://api.dev.joinpassive.com/deposits/<Deposit-UUID>/`
+
+There is a status field within the returned JSON. The four statuses are awaiting tenant Setup, active, pending closure, and closed. 
+
