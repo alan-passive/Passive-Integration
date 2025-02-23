@@ -7,7 +7,15 @@ Integration into the passive platform can be summarized into the following steps
 4. Add Units
 5. Add Tenants and Request Deposit
 6. Fetch Deposit Status
-For testing purpose, use our development endpoint: `https://api.dev.joinpassive.com/`
+
+For testing purposes, use our dev endpoint: `https://api.dev.joinpassive.com/`
+For production purposes, use our prod endpoint: `https://api.joinpassive.com/`
+
+## Prerequisite
+
+1. Create an account on `https://app.joinpassive.com/signup`
+2. Verfy your `Owner Identity Verification` - You should receive this email after account creation
+
 ## Login
 
 - Method: Post
