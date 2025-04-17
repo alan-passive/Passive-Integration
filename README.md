@@ -102,5 +102,15 @@ By hitting this endpoint, the client will receive an email to complete the secur
 - Method: Get
 - Endpoint: `https://api.dev.joinpassive.com/deposits/<Deposit-UUID>/`
 
-There is a status field within the returned JSON. The four statuses are awaiting tenant Setup, active, pending closure, and closed. Contact Passive if you want use to hit an API when deposit status changes.
+There is a status field within the returned JSON. Contact Passive if you want us to hit an API when deposit status changes.
 
+## Deposit Status Subscription
+
+- Method: Post
+- Endpoint: `https://api.dev.joinpassive.com/webhooks/subscribe`
+- Request body: `{
+    "DepositID": "<Deposit-UUID>"
+}`
+- Successful Response: `null`
+
+Use this endpoint to subscribe to status change of deposit. When subscribed, the initial status will be "awaitingsetup" with the next status being "paid". You will only receive "paid" status update right after tenant paid their deposit and there is an existing subscription from the above endpoint.
