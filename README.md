@@ -113,4 +113,6 @@ There is a status field within the returned JSON. Contact Passive if you want us
 }`
 - Successful Response: `null`
 
+Make sure to include your API key in the header.
+
 Use this endpoint to subscribe to status change of deposit. When subscribed, the initial status will be "awaitingsetup" with the next status being "paid". You will only receive "paid" status update right after tenant paid their deposit and there is an existing subscription from the above endpoint.
